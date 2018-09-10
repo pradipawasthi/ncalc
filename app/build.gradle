@@ -30,7 +30,7 @@ android {
     signingConfigs {
         release
     }
-    setupSigningConfig()
+//    setupSigningConfig()
     buildTypes {
         release {
             minifyEnabled true
@@ -48,20 +48,20 @@ android {
     }
 }
 
-def setupSigningConfig(){
-    Properties props = new Properties()
-    def propFile = new File('signing.properties')
-    if (propFile.canRead()) {
-        props.load(new FileInputStream(propFile))
-        android.signingConfigs.release.storeFile = file(props['RELEASE_STORE_FILE'])
-        android.signingConfigs.release.storePassword = props['RELEASE_STORE_PASSWORD']
-        android.signingConfigs.release.keyAlias = props['RELEASE_KEY_ALIAS']
-        android.signingConfigs.release.keyPassword = props['RELEASE_KEY_PASSWORD']
-    } else {
-        android.buildTypes.release.signingConfig = null
-        throw new GradleException('signing.properties not found')
-    }
-}
+//def setupSigningConfig(){
+//    Properties props = new Properties()
+//    def propFile = new File('signing.properties')
+//    if (propFile.canRead()) {
+//        props.load(new FileInputStream(propFile))
+//        android.signingConfigs.release.storeFile = file(props['RELEASE_STORE_FILE'])
+//        android.signingConfigs.release.storePassword = props['RELEASE_STORE_PASSWORD']
+//        android.signingConfigs.release.keyAlias = props['RELEASE_KEY_ALIAS']
+//        android.signingConfigs.release.keyPassword = props['RELEASE_KEY_PASSWORD']
+//    } else {
+//        android.buildTypes.release.signingConfig = null
+////        nullthrow new GradleException('signing.properties not found')
+//    }
+//}
 
 repositories {
     mavenCentral()
